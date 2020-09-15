@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.jzx.crowd</groupId>
+    <groupId>test.crowd</groupId>
     <artifactId>jzxcrowdfunding01-admin-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
@@ -23,7 +23,7 @@
         <atguigu.spring.security.version>4.2.10.RELEASE</atguigu.spring.security.version>
     </properties>
 
-
+    <dependencyManagement>
         <dependencies>
             <!--Spring 依赖 -->
             <!--https://mvnrepository.com/artifact/org.springframework/spring-orm-->
@@ -102,11 +102,11 @@
                 <artifactId>jcl-over-slf4j</artifactId>
                 <version>1.7.25</version>
             </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jul-to-slf4j</artifactId>
-                <version>1.7.25</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.slf4j</groupId>-->
+<!--                <artifactId>jul-to-slf4j</artifactId>-->
+<!--                <version>1.7.25</version>-->
+<!--            </dependency>-->
             <!--Spring 进行 JSON 数据转换依赖 -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -171,7 +171,7 @@
                 <version>4.2.10.RELEASE</version>
             </dependency>
         </dependencies>
-
+    </dependencyManagement>
 
 
     <repositories>
