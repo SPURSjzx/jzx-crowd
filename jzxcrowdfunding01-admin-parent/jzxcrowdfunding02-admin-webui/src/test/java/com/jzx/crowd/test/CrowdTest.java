@@ -1,6 +1,7 @@
 package com.jzx.crowd.test;
 
 import com.jzx.crowd.mapper.AdminMapper;
+import com.jzx.crowd.service.AdminService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import test.crowd.entity.Admin;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.SQLException;
 
 /**
@@ -31,6 +31,16 @@ public class CrowdTest {
 
     @Autowired
     private AdminMapper adminMapper;
+
+    @Autowired
+    private AdminService adminService;
+
+    @Test
+    public void testAdmin(){
+        adminService.saveAdmin(new Admin(null,"lucy","123","lucy","1239546178@qq.com",null));
+        System.out.println(adminService);
+    }
+
     @Test
     public void testConnection() throws SQLException {
         Connection connection = dataSource.getConnection();
