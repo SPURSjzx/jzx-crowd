@@ -1,6 +1,6 @@
 package com.jzx.crowd.service;
 
-import test.crowd.entity.Admin;
+import com.jzx.crowd.entity.Admin;
 
 import java.util.List;
 
@@ -20,4 +20,6 @@ public interface AdminService {
     void saveAdmin(Admin admin);
 
     List<Admin> getAll();
+
+    Admin getAdminByLoginAcct(String loginAcct, String password);
 }

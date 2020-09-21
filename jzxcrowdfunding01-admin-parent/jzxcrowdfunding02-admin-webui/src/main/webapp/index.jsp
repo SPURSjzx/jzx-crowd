@@ -9,9 +9,37 @@
 <html>
 <head>
     <title>Title</title>
-    <base href="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}">
+    <base href="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/">
+    <script type="text/javascript" src="jquery/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="layer/layer.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btn1").click(function () {
+                $.ajax({
+                    "url":"send/array.html",
+                    "type":"post",
+                    "data":{
+                        "array":[5,7,1]
+                    },
+                    "dataType":"txt",
+                    "success":function(response){
+                        alert(response);
+                    },
+                    "error":function(response){
+                        alert(response);
+                    }
+                });
+            });
+            $("#btn2").click(function () {
+                layer.msg("测试");
+            });
+        });
+    </script>
 </head>
 <body>
     <a href="test/ssm.html">ssm环境整合</a>
+    <br/>
+    <button id="btn1">Test RequsetBody</button>
+    <button id="btn2">layer工具</button>
 </body>
 </html>

@@ -2,8 +2,8 @@ package com.jzx.crowd.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import test.crowd.entity.Admin;
-import test.crowd.entity.AdminExample;
+import com.jzx.crowd.entity.Admin;
+import com.jzx.crowd.entity.AdminExample;
 
 import java.util.List;
 
@@ -30,4 +30,6 @@ public interface AdminMapper {
     int updateByPrimaryKeySelective(Admin record);
 
     int updateByPrimaryKey(Admin record);
+
+    List<Admin> getAdminByLoginAcct(String loginAcct);
 }

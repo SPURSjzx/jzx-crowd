@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jzx.crowd.mapper.AdminMapper" >
-  <resultMap id="BaseResultMap" type="test.crowd.entity.Admin" >
+  <resultMap id="BaseResultMap" type="com.jzx.crowd.entity.Admin" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="login_acct" property="loginAcct" jdbcType="VARCHAR" />
     <result column="user_password" property="userPassword" jdbcType="CHAR" />
@@ -70,7 +70,7 @@
   <sql id="Base_Column_List" >
     id, login_acct, user_password, user_name, email, create_time
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="test.crowd.entity.AdminExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jzx.crowd.entity.AdminExample" >
     select
     <if test="distinct" >
       distinct
@@ -94,13 +94,13 @@
     delete from t_admin
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="test.crowd.entity.AdminExample" >
+  <delete id="deleteByExample" parameterType="com.jzx.crowd.entity.AdminExample" >
     delete from t_admin
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="test.crowd.entity.Admin" >
+  <insert id="insert" parameterType="com.jzx.crowd.entity.Admin" >
     insert into t_admin (id, login_acct, user_password, 
       user_name, email, create_time
       )
@@ -108,7 +108,7 @@
       #{userName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=CHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="test.crowd.entity.Admin" >
+  <insert id="insertSelective" parameterType="com.jzx.crowd.entity.Admin" >
     insert into t_admin
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -151,13 +151,16 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="test.crowd.entity.AdminExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.jzx.crowd.entity.AdminExample" resultType="java.lang.Integer" >
     select count(*) from t_admin
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map" >
+    <select id="getAdminByLoginAcct" resultType="com.jzx.crowd.entity.Admin">
+      select * from t_admin where login_acct = #{loginAcct}
+    </select>
+    <update id="updateByExampleSelective" parameterType="map" >
     update t_admin
     <set >
       <if test="record.id != null" >
@@ -195,7 +198,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="test.crowd.entity.Admin" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.jzx.crowd.entity.Admin" >
     update t_admin
     <set >
       <if test="loginAcct != null" >
@@ -216,7 +219,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="test.crowd.entity.Admin" >
+  <update id="updateByPrimaryKey" parameterType="com.jzx.crowd.entity.Admin" >
     update t_admin
     set login_acct = #{loginAcct,jdbcType=VARCHAR},
       user_password = #{userPassword,jdbcType=CHAR},

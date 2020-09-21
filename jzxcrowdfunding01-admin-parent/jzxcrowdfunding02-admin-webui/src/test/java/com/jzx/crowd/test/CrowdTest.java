@@ -2,17 +2,19 @@ package com.jzx.crowd.test;
 
 import com.jzx.crowd.mapper.AdminMapper;
 import com.jzx.crowd.service.AdminService;
+import com.jzx.crowd.util.CrowdUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import test.crowd.entity.Admin;
+import com.jzx.crowd.entity.Admin;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * @title: test.com.jzx.crowd.test.CrowdTest
@@ -39,6 +41,18 @@ public class CrowdTest {
     public void testAdmin(){
         adminService.saveAdmin(new Admin(null,"lucy","123","lucy","1239546178@qq.com",null));
         System.out.println(adminService);
+    }
+
+    @Test
+    public void testGetAdmin(){
+        List<Admin> tom = adminMapper.getAdminByLoginAcct("tom");
+        System.out.println(tom.size());
+    }
+
+    @Test
+    public void testMD5(){
+        String s = CrowdUtil.md5("123");
+        System.out.println(s);
     }
 
     @Test
