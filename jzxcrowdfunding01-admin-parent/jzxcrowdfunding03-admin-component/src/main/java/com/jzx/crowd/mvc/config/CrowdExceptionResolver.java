@@ -26,15 +26,15 @@ import java.io.IOException;
 @ControllerAdvice
 public class CrowdExceptionResolver {
 
-    // 创建一个方法 处理未登录就访问其他页面
-    @ExceptionHandler(value = AccessForbiddenException.class)
-    public ModelAndView resolveAccessForbiddenException(
-            AccessForbiddenException exception,
-            HttpServletRequest request,
-            HttpServletResponse response) throws IOException {
-        String viewName =  "admin-log";
-        return commonResolve(viewName,exception,request, response);
-    }
+//    // 创建一个方法 处理未登录就访问其他页面
+//    @ExceptionHandler(value = AccessForbiddenException.class)
+//    public ModelAndView resolveAccessForbiddenException(
+//            AccessForbiddenException exception,
+//            HttpServletRequest request,
+//            HttpServletResponse response) throws IOException {
+//        String viewName =  "admin-log";
+//        return commonResolve(viewName,exception,request, response);
+//    }
 
 
     // 创建一个异常处理方法 来处理管理员登录失败

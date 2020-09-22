@@ -16,4 +16,6 @@ public class CrowdConstant {
     public static final String ATTR_NAME_EXCEPTION="exception";
     public static final String ATTR_NAME_LOGIN_ADMIN = "loginAdmin";
     public static final String MESSAGE_SYSTEM_ERROR_LOGIN_NOT_UNIQUE = "系统错误，数据库账号不唯一";
+    public static final String ATTR_NAME_PAGE_INFO = "pageInfo";
+    public static final String ATTR_NAME_PAGE_KEYWORD = "keyword";
 }

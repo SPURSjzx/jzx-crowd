@@ -1,5 +1,6 @@
 package com.jzx.crowd.service;
 
+import com.github.pagehelper.PageInfo;
 import com.jzx.crowd.entity.Admin;
 
 import java.util.List;
@@ -22,4 +23,6 @@ public interface AdminService {
     List<Admin> getAll();
 
     Admin getAdminByLoginAcct(String loginAcct, String password);
+
+    PageInfo<Admin> getPageInfo(String keyword,Integer pageNum,Integer pageSize);
 }

@@ -1,5 +1,7 @@
 package com.jzx.crowd.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.jzx.crowd.constant.CrowdConstant;
 import com.jzx.crowd.exception.LoginFailedException;
 import com.jzx.crowd.mapper.AdminMapper;
@@ -65,5 +67,19 @@ public class AdminServiceImpl implements AdminService {
         }
         // 8 如果一致则返回Admin对象
         return admin;
+    }
+
+    @Override
+    public PageInfo<Admin> getPageInfo(String keyword, Integer pageNum, Integer pageSize) {
+
+        // 1 先调用PageHelper的静态方法开启分页的功能
+        // 这里充分体现了PageHelper的非侵入式设计 使得原本要做的查询不需要任何修改就可以完成分页
+        PageHelper.startPage(pageNum,pageSize);
+
+        // 2 执行查询
+        List<Admin> list = adminMapper.selectAdminByKeyword(keyword);
+
+        // 3 封装到PageInfo对象
+        return new PageInfo<>(list);
     }
 }

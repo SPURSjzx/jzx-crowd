@@ -39,7 +39,8 @@
 <body>
     <a href="test/ssm.html">ssm环境整合</a>
     <br/>
-    <button id="btn1">Test RequsetBody</button>
+    <button id="btn1">Test RequsetBody</button>0
     <button id="btn2">layer工具</button>
+    <a href="admin/to/login/page.html">管理员登陆</a>
 </body>
 </html>

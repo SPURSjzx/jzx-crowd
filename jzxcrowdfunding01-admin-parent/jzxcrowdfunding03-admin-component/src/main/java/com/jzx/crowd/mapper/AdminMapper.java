@@ -32,4 +32,6 @@ public interface AdminMapper {
     int updateByPrimaryKey(Admin record);
 
     List<Admin> getAdminByLoginAcct(String loginAcct);
+
+    List<Admin> selectAdminByKeyword(String keyword);
 }

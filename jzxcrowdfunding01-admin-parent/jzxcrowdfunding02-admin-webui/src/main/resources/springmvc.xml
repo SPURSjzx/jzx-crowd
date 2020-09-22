@@ -38,7 +38,8 @@
                 <!--key属性指定异常类的全名-->
                 <!--标签体中写对应的视图（这个值要拼前后缀得到具体路径）-->
                 <prop key="java.lang.Exception">system-error</prop>
-                <prop key="java.lang.RuntimeException">admin-log</prop>
+                <!---->
+                <prop key="com.jzx.crowd.exception.AccessForbiddenException">admin-log</prop>
             </props>
         </property>
     </bean>
